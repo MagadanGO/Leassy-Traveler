@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Leassy Traveler</string>
+
+    <string name="Informacion">Aqui va la informacion de la aplicacion y un pequeño instructivo.</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_entry_1">Áreas de frases</string>
+    <string name="menu_entry_2">Información</string>
+    <string name="title_activity_categorias">CategoriasActivity</string>
+    <string name="title_activity_senales">SenalesActivity</string>
+    <string name="title_activity_exp">Explicacion</string>
+    <string name="title_activity_frases">Frases</string>
+    <string name="title_activity_Areas">Areas</string>
+    <string name="title_activity_segnales">SegnalesActivity</string>
+    <string name="title_activity_informacion">informacion</string>
+    <string name="title_activity_info">InfoActivity</string>
+
+</resources>
