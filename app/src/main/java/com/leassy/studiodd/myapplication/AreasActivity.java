@@ -39,6 +39,18 @@ public class AreasActivity extends ActionBarActivity {
       );
     }//onCreate
 
+    public void consultarx(){
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"base",null,1);
+        SQLiteDatabase base = admin.getWritableDatabase();
+        Cursor cursor= base.rawQuery("SELECT area FROM categorias",null);
+        opciones = new String [cursor.getCount()];
+        int c=0;
+        while(cursor.moveToNext()){
+            opciones[c]=cursor.getString(0);
+            c++;
+        }
+    }//Consultar
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -62,16 +74,4 @@ public class AreasActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void consultarx(){
-
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"base",null,1);
-        SQLiteDatabase base = admin.getWritableDatabase();
-        Cursor cursor= base.rawQuery("SELECT area FROM categorias",null);
-        opciones = new String [cursor.getCount()];
-        int c=0;
-                    while(cursor.moveToNext()){
-                        opciones[c]=cursor.getString(0);
-                        c++;
-                    }
-    }//Consultar
 }

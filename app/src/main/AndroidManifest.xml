@@ -32,14 +32,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AreasActivity" />
         </activity>
-        <activity
-            android:name=".SenalesActivity"
-            android:label="@string/title_activity_senales"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.leassy.studiodd.myapplication.MainActivity" />
-        </activity>
+
         <activity
             android:name=".ExpActivity"
             android:label="@string/title_activity_exp"
@@ -56,14 +49,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.leassy.studiodd.myapplication.AreasActivity" />
         </activity>
-        <activity
-            android:name=".informacion"
-            android:label="@string/title_activity_informacion"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.leassy.studiodd.myapplication.MainActivity" />
-        </activity>
+       
         <activity
             android:name=".InfoActivity"
             android:label="@string/title_activity_info"

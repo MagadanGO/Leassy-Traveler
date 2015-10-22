@@ -24,6 +24,7 @@ public class CategoriasActivity extends ActionBarActivity {
     String [] arreglo;
     ListView lista;
     ArrayAdapter<String> adaptador;
+    Cursor cursor;
     int c;
     String opciones [];
 
@@ -33,6 +34,7 @@ public class CategoriasActivity extends ActionBarActivity {
         setContentView(R.layout.activity_categorias );
 
         consultar();
+        cursor.moveToFirst();
         lista =(ListView) findViewById(R.id.opciones);
         adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,opciones);
         lista.setAdapter(adaptador);
@@ -78,13 +80,9 @@ public class CategoriasActivity extends ActionBarActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"base",null,1);
         SQLiteDatabase base=admin.getWritableDatabase();
         String query = "select frases FROM areas WHERE id_ = "+idRe;
-        Cursor cursor= base.rawQuery(query,null);
+        cursor= base.rawQuery(query,null);
         opciones = new String [cursor.getCount()];
         int c=0;
-        if (cursor.moveToFirst()){
-            opciones [0]=cursor.getString(0);
-            //textview.setText(arreglo [0]);
-        }
         while(cursor.moveToNext()){
             opciones[c]=cursor.getString(0);
             c++;

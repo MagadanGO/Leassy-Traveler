@@ -2,11 +2,14 @@ package com.leassy.studiodd.myapplication;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 
 public class ExpActivity extends ActionBarActivity {
@@ -14,6 +17,8 @@ public class ExpActivity extends ActionBarActivity {
     int idRe,idA;
     Bundle bundle;
     Cursor cursor;
+    ImageView imagen;
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,19 +29,19 @@ public class ExpActivity extends ActionBarActivity {
         idA=bundle.getInt("idy");
         consultar();
 
-      //  TextView txt1 = (TextView)findViewById(R.id.fraseesp);
-       // txt1.setText(frase1);
+        imagen = (ImageView) findViewById(R.id.imageView);
 
         cursor.moveToFirst();
 
+        imagen.setImageResource(getResources().getIdentifier(cursor.getString(3),"drawable",getPackageName()));
+        mp=MediaPlayer.create(this,getResources().getIdentifier(cursor.getString(2),"raw",getPackageName()));
+
         TextView txt1 = (TextView)findViewById(R.id.fraseesp);
         txt1.setText(cursor.getString(0));
-
-
         TextView txt2 = (TextView)findViewById(R.id.fraseing);
         txt2.setText(cursor.getString(1));
 
-    }
+    }//OnCreate
 
 
     @Override
@@ -61,9 +66,13 @@ public class ExpActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void listen(View v){
+        mp.start();
+    }
+
     public void consultar(){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"base",null,1);
         SQLiteDatabase base = admin.getWritableDatabase();
-        cursor= base.rawQuery("select fraseesp,fraseing from FRASES where ID ="+idRe+" and area="+idA,null);
+        cursor= base.rawQuery("select fraseesp,fraseing,audio,imagen from FRASES where ID = "+idRe+" and area="+idA,null);
     }//Consultar
 }
