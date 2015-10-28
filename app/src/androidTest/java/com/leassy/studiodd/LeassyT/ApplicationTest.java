@@ -1,4 +1,4 @@
-package com.leassy.studiodd.myapplication;
+package com.leassy.studiodd.LeassyT;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

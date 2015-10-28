@@ -1,4 +1,4 @@
-package com.leassy.studiodd.myapplication;
+package com.leassy.studiodd.LeassyT.Activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,53 +11,45 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.sql.SQLClientInfoException;
+import com.leassy.studiodd.LeassyT.R;
 
 
-public class CategoriasActivity extends ActionBarActivity {
+public class FrasesActivity extends ActionBarActivity {
 
-    Bundle bundle;
-    TextView textview;
+    String opciones[];
     int idRe;
-    String [] arreglo;
-    ListView lista;
-    ArrayAdapter<String> adaptador;
-    Cursor cursor;
-    int c;
-    String opciones [];
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categorias );
-
-        consultar();
-        cursor.moveToFirst();
-        lista =(ListView) findViewById(R.id.opciones);
-        adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,opciones);
-        lista.setAdapter(adaptador);
-
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {//Listener
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), CategoriasActivity.class);
-                i.putExtra("id", position);
-                startActivity(i);
-            }
-        } //Listener
-        );
+        setContentView(R.layout.activity_frases);
 
         bundle = getIntent().getExtras();
         idRe=bundle.getInt("id");
+        consultar();
 
-    }//Create
+        ListView lista =(ListView) findViewById(R.id.fraseslist);
+        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,opciones);
+        lista.setAdapter(adaptador);
+
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getApplicationContext(),ExpActivity.class);
+                i.putExtra("idx",position);
+                i.putExtra("idy",idRe);
+                startActivity(i);
+            }
+        });
+
+    }//onCreate
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_categorias, menu);
+        getMenuInflater().inflate(R.menu.menu_frases, menu);
         return true;
     }
 
@@ -78,9 +70,8 @@ public class CategoriasActivity extends ActionBarActivity {
 
     public void consultar(){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"base",null,1);
-        SQLiteDatabase base=admin.getWritableDatabase();
-        String query = "select frases FROM areas WHERE id_ = "+idRe;
-        cursor= base.rawQuery(query,null);
+        SQLiteDatabase base = admin.getWritableDatabase();
+        Cursor cursor= base.rawQuery("select fraseesp from FRASES where area = "+idRe,null);
         opciones = new String [cursor.getCount()];
         int c=0;
         while(cursor.moveToNext()){
@@ -88,5 +79,4 @@ public class CategoriasActivity extends ActionBarActivity {
             c++;
         }
     }//Consultar
-
 }

@@ -1,4 +1,4 @@
-package com.leassy.studiodd.myapplication;
+package com.leassy.studiodd.LeassyT.Activities;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageView;
+
+import com.leassy.studiodd.LeassyT.R;
 
 
 public class ExpActivity extends ActionBarActivity {

@@ -1,4 +1,4 @@
-package com.leassy.studiodd.myapplication;
+package com.leassy.studiodd.LeassyT.Activities;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.content.Intent;
+
+import com.leassy.studiodd.LeassyT.R;
 
 
 public class AreasActivity extends ActionBarActivity {

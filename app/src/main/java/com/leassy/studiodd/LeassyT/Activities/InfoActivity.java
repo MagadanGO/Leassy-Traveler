@@ -1,9 +1,11 @@
-package com.leassy.studiodd.myapplication;
+package com.leassy.studiodd.LeassyT.Activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.leassy.studiodd.LeassyT.R;
 
 
 public class InfoActivity extends ActionBarActivity {

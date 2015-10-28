@@ -1,8 +1,6 @@
-package com.leassy.studiodd.myapplication;
+package com.leassy.studiodd.LeassyT.Activities;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.*;
 
 /**

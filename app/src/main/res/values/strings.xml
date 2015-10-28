@@ -13,5 +13,6 @@
     <string name="title_activity_segnales">SegnalesActivity</string>
     <string name="title_activity_informacion">informacion</string>
     <string name="title_activity_info">InfoActivity</string>
+    <string name="title_activity_ss_">SS_Activity</string>
 
 </resources>
