@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.leassy.studiodd.LeassyT.Fragments.ExpFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/fraseesp"
+        android:layout_above="@+id/fraseing"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/fraseing"
+        android:layout_above="@+id/imageButton"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:id="@+id/imageButton"
+        android:background="@drawable/play"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
